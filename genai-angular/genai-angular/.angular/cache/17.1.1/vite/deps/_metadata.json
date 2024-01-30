@@ -1,0 +1,43 @@
+{
+  "hash": "e361478a",
+  "configHash": "c66bb9a6",
+  "lockfileHash": "93acdd29",
+  "browserHash": "be1be581",
+  "optimized": {
+    "@angular/core": {
+      "src": "../../../../../node_modules/@angular/core/fesm2022/core.mjs",
+      "file": "@angular_core.js",
+      "fileHash": "9996632d",
+      "needsInterop": false
+    },
+    "@angular/platform-browser": {
+      "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
+      "file": "@angular_platform-browser.js",
+      "fileHash": "055e0f31",
+      "needsInterop": false
+    },
+    "@angular/router": {
+      "src": "../../../../../node_modules/@angular/router/fesm2022/router.mjs",
+      "file": "@angular_router.js",
+      "fileHash": "a6851483",
+      "needsInterop": false
+    },
+    "axios": {
+      "src": "../../../../../node_modules/axios/index.js",
+      "file": "axios.js",
+      "fileHash": "536674c1",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-64QSCH57": {
+      "file": "chunk-64QSCH57.js"
+    },
+    "chunk-4A2ZXJMH": {
+      "file": "chunk-4A2ZXJMH.js"
+    },
+    "chunk-GLLL6ZVE": {
+      "file": "chunk-GLLL6ZVE.js"
+    }
+  }
+}

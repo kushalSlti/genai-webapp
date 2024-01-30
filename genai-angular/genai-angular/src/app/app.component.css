@@ -1,0 +1,72 @@
+
+
+/* General styling */
+.app {
+  font-family: sans-serif;
+  background-color: #fff; /* Light gray background */
+  object-fit: cover;
+  margin:0;
+  padding:0;
+  
+}
+
+/* Header */
+header {
+  background-color: #004c88;
+  color: #fff; /* White text for contrast */
+  text-align: left;
+  padding: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  
+}
+
+img{
+    height:60px
+}
+
+/* Container */
+.container {
+  width: 80%;
+  height:80%; /* Adjust as needed */
+  margin: 0 auto; /* Center horizontally */
+  padding: 30px;
+  border-radius: 5px; /* Soften edges */
+  background-color: #fff; /* White background for contrast */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Input and button */
+input[type="file"],
+button {
+  display: block; /* Stack vertically */
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  cursor: pointer;
+  
+}
+
+button {
+  background-color: #007bff; /* Primary blue color */
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Response data */
+div p {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+/* for output */
+.output {
+  background-color: #eee; /* Light gray background */
+  text-align: center;
+  padding: 15px;
+  margin-top: 20px;
+  width: 80%;
+  margin: 5% auto
+
+}

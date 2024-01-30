@@ -1,0 +1,21 @@
+
+<div class="app">
+  <header>
+    <img src="assets/images/download.png" alt="Header Image">
+    
+  </header>
+  
+  
+  <div class="container" style="text-align: center;margin-top: 5%;">
+   
+    <input type="file" (change)="onFileChange($event)">
+    <button (click)="uploadPDF()">Upload PDF</button>
+  
+  </div>
+  
+  <div class="output" > 
+    
+    <p >{{ responseData }}</p>
+  </div>
+</div>
+
