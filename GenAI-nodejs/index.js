@@ -29,14 +29,44 @@ async function run(fileData) {
   // pdf code ends
 
   // calling gen ai 
-  string1 = { "name":"kushal","job":"SDE"}
+  string1 = {
+    "landlord_name": 'Mr James Hans',
+    "tenant_name": 'Mr Kapoor',
+    "property_name": 'Shop 1-2 , Navi mumbai',
+    "rent": '10000',
+    "starting_date": 'January 1, 2024',
+    "ending_date": 'July 31, 2024'
+  }
+
+
+  wrongformat = true
+  tries = 0
+  while ( tries < 10){
+
+    tries += 1;
+    console.log("try no." + tries)
+    const model = genAI.getGenerativeModel({ model: "gemini-pro"});
+    const prompt = `Extract landlord name , tenant name , property name , rent , starting date , ending date from the following text :${textData};and present the data in key value pairs seperated by comma in a single line and encapsulate each key and value in double inverted commas only; and the response should look like this : ${string1}; all keys should be in smallcase and key names should not have space in between but underscores like this :${string1}; just give the relevant data no additional comments needed`
+    const result = await model.generateContent(prompt);
+    const response = await result.response;
+    const text = response.text();
+    console.log(text)
+
+    try{
+      r_data = JSON.parse(text)
+      if(r_data["landlord_name"]){
+        return(r_data)
+      }
+      
+    }catch(error){
+
+    }
+    
+     
+
+  }
+  return([`false`])
   
-  const model = genAI.getGenerativeModel({ model: "gemini-pro"});
-  const prompt = `Extract landlord name , tenant name , property name , rent , starting date , ending date from the following text :${textData};and present the data in key value pairs seperated by comma in a single line and each key and value should be encapsulated in double inverted commas and the whole reponse inside curly brackets like this ${string1}; just give the relevant data no additional comments needed`
-  const result = await model.generateContent(prompt);
-  const response = await result.response;
-  const text = response.text();
-  return(text) 
 }
 
 
@@ -50,7 +80,7 @@ app.post('/upload', upload.single('pdf'), async(req, res) => {
     const pdfBuffer = req.file.buffer;
     const text = await run(pdfBuffer); 
     console.log(text)
-    response_data = JSON.parse(text)
+    
     res.send(text); // Send the text response
   } catch (error) {
     console.error(error);

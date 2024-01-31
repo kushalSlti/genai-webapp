@@ -1,21 +1,53 @@
 
-<div class="app">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
   <header>
     <img src="assets/images/download.png" alt="Header Image">
-    
   </header>
-  
-  
-  <div class="container" style="text-align: center;margin-top: 5%;">
-   
+
+  <div class="container" z>
     <input type="file" (change)="onFileChange($event)">
-    <button (click)="uploadPDF()">Upload PDF</button>
-  
+    <button class="upload-button" (click)="uploadPDF()">Upload PDF</button>
   </div>
-  
-  <div class="output" > 
-    
-    <p >{{ responseData }}</p>
+
+  <div class="lease-card" *ngIf="dataExists">
+    <form [formGroup]="leaseForm" (ngSubmit)="onSubmit()">
+      <h2 class="form-heading">Lease Agreement</h2>
+
+      <div class="form-fields">
+        <div class="field">
+          <label for="landlordName">Landlord Name:</label>
+          <input type="text" id="landlordName" formControlName="landlordName" required />
+        </div>
+
+        <div class="field">
+          <label for="tenantName">Tenant Name:</label>
+          <input type="text" id="tenantName" formControlName="tenantName" required />
+        </div>
+
+        <div class="field">
+          <label for="startDate">Start Date:</label>
+          <input type="text" id="startDate" formControlName="startDate" required />
+        </div>
+
+        <div class="field">
+          <label for="endDate">End Date:</label>
+          <input type="text" id="endDate" formControlName="endDate" required />
+        </div>
+
+        <div class="field">
+          <label for="rent">Monthly Rent:</label>
+          <input type="text" id="rent" formControlName="rent" required min="0" />
+        </div>
+
+        <div class="field">
+          <label for="propertyAddress">Property Address:</label>
+          <input type="text" id="propertyAddress" formControlName="propertyAddress" required />
+        </div>
+      </div>
+      <button class="submit-button" type="submit" [disabled]="!leaseForm.valid">Submit Agreement</button>
+    </form>
   </div>
-</div>
 
